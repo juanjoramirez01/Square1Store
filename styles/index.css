@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "components/header.css";
 @import "components/hero.css";
 @import "components/footer.css";
@@ -278,4 +279,51 @@ p {
     background-color: #ED1C24;
     color: var(--color-white);
     box-shadow: 0px 20px 35px 0px #00000026;
+=======
+@import "components/header.css";
+@import "components/hero.css";
+@import "components/products.css";
+@import "components/brands.css";
+@import "components/banner.css";
+@import "fonts/fonts.css";
+
+:root {
+    --color-primary: #ED1C24;
+    --color-black: #191919;
+    --color-white: #FFFFFF;
+    --color-darker-gray: #CCCCCC;
+    --color-lighter-gray: #FAFAFA;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: "Roboto", sans-serif;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+video,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+>>>>>>> master
 }
