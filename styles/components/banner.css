@@ -1,0 +1,57 @@
+.banner {
+    margin: 2rem auto;
+    backdrop-filter: blur(10px);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+.banner-background {
+    background-color: rgba(50, 50, 50, 0.5);
+    width: inherit;
+}
+
+.banner-text {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 5px 4px #00000033;
+    padding: 7rem 0rem 3rem 0rem;
+}
+
+.banner-text > h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.banner-text > h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.banner-text > p {
+    max-width: 40rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.shop-button {
+    margin: 2rem auto;
+    width: 135px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #ED1C24;
+    color: var(--color-white);
+    box-shadow: 0px 20px 35px 0px #00000026;
+}

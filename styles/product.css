@@ -1,0 +1,130 @@
+@import "components/header.css";
+@import "components/product-detail.css";
+@import "components/footer.css";
+@import "fonts/fonts.css";
+
+:root {
+    --color-primary: #ED1C24;
+    --color-black: #191919;
+    --color-white: #FFFFFF;
+    --color-darker-gray: #CCCCCC;
+    --color-lighter-gray: #FAFAFA;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: "Volkhov", serif;
+    max-width: 80rem;
+    margin-inline: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+video,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+    background-color: var(--color-white);
+}
+
+main {
+    max-width: 80rem;
+    margin: auto;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    margin: 2rem auto;
+    gap: 4rem;
+}
+
+.image-gallery {
+    gap: 1rem;
+    display: flex;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.thumbnail-photo {
+    padding: 0.5rem;
+    border-radius: 3px;
+    box-sizing: content-box;
+    width: 70px;
+    height: 90px;
+}
+
+.selected {   
+    border: 1px solid #000000;
+}
+
+.main-photo {
+    display: none;
+    width: 245px;
+    height: 327px;
+    overflow: hidden;
+}
+
+.hidden {
+    display: flex;
+}
+
+.main-photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .main-photo {
+        display: flex;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-photo {
+        width: 491px;
+        height: 655px;
+    }
+}
+

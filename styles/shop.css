@@ -1,0 +1,74 @@
+@import "components/header.css";
+@import "components/filters.css";
+@import "components/shop-products.css";
+@import "components/footer.css";
+@import "fonts/fonts.css";
+
+:root {
+    --color-primary: #ED1C24;
+    --color-black: #191919;
+    --color-white: #FFFFFF;
+    --color-darker-gray: #CCCCCC;
+    --color-lighter-gray: #FAFAFA;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: "Volkhov", serif;
+    max-width: 80rem;
+    margin-inline: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+video,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    max-width: 80rem;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.header {
+    margin-inline: 1rem;
+}
+
+.main-header {
+    padding-inline: 0;
+}
+
+.navbar {
+    background-color: var(--color-white);
+}
+
+@media  (min-width: 640px) {
+    main {
+        margin: 2rem auto 0 auto;
+        justify-content: space-between;
+    }
+
+    .header {
+        margin-inline: auto;
+    }
+}

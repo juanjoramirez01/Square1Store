@@ -1,0 +1,76 @@
+@import "components/header.css";
+@import "components/checkout-form.css";
+@import "components/cart-products.css";
+@import "components/footer.css";
+@import "fonts/fonts.css";
+
+:root {
+    --color-primary: #ED1C24;
+    --color-black: #191919;
+    --color-white: #FFFFFF;
+    --color-darker-gray: #CCCCCC;
+    --color-lighter-gray: #FAFAFA;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: "Poppins", sans-serif;
+    max-width: 80rem;
+    margin-inline: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+video,
+svg {
+    height: auto;
+    max-width: 100%;
+}
+
+.navbar {
+    background-color: var(--color-white);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+h1, h2 {
+    font-family: "Volkhov", serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 1rem;
+    max-width: 80rem;
+    gap: 2rem;
+}
+
+@media  (min-width: 1024px) {
+    main {
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: content-box;
+        padding: 2rem;
+    }
+}

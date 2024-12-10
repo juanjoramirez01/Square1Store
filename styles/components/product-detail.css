@@ -1,0 +1,251 @@
+.product-details {
+    flex: 1.5;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details h1 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.product-details h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666666
+}
+
+.rating {
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.price .discount {
+    color: #ff0000;
+}
+
+.size-options,
+.color-options {
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.size-options > div,
+.color-options > div {
+    display: flex;
+    gap: 1rem;
+}
+
+.sizes {
+    width: 45px;
+    height: 45px;
+    padding-top: 10px;
+    text-align: center;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    cursor: pointer;
+    background: white;
+}
+
+.sizes:hover {
+    background: #EEEEEE;
+}
+
+.sizes.active {
+    background: #000;
+    color: white;
+}
+
+.add-to-cart {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-to-cart:hover {
+    background-color: black;
+    color: white;
+}
+
+.info {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.payment-methods img {
+    margin: 2rem 0;
+}
+
+.colors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-colors {
+    width: 40px;
+    height: 40px;
+    aspect-ratio: 1;
+    box-sizing: content-box;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 0.5rem;
+    margin-inline: 0;
+    background-color: transparent;
+}
+
+.product-colors > div {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    transition: transform 0.3s ease;
+}
+
+.product-colors:hover,
+.active {
+    border: solid 1px var(--color-black);
+}
+
+.active > div {
+    transform: scale(0.8);
+    transform-origin: center;
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-around;
+    
+    align-items: center;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 7.5rem;
+    border: 1px solid var(--color-darker-gray);
+    background-color: var(--color-white);
+    font-family: "Poppins", sans-serif;
+}
+
+.quantity > button {
+    background-color: var(--color-white);
+    border: none;
+    cursor: pointer;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #191919;
+    margin: 1rem 0;
+}
+
+.price > .new-price {
+    font-size: 1.5rem;
+}
+
+.price > .old-price {
+    opacity: 0.5;
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+.save {
+    background-color: #DA3F3F;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 11px;
+    border-radius: 11px;
+    padding: 2.5px 10px;
+    margin: 1rem 0;
+}
+
+.product-view {
+    display: flex;
+    gap: 1rem;
+    font-family: "Poppins", sans-serif;
+    color: #8A8A8A;
+    margin: 1rem 0;
+}
+
+.counter {
+    border: 1px solid #F8CCCC;
+    background-color: #FDEFEE;
+    border-radius: 4px;
+    height: 54px;
+    color: #FF706B;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock {
+    color: #FF706B;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.stock-stat {
+    font-family: "Poppins", sans-serif;
+    color: #666666;
+    margin: 1rem 0;
+}
+
+.progress {
+    display: flex;
+}
+
+.progress-red {
+    width: 30px;
+    height: 5px;
+    background-color: var(--color-primary);
+}
+
+.progress-gray {
+    width: 515px;
+    height: 5px;
+    background-color: var(--color-darker-gray);
+}
+
+.quantity-options {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.tools {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.tools > div {
+    display: flex;
+    align-items: center;
+}
