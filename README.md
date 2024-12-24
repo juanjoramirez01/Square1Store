@@ -291,19 +291,3 @@ A continuación, se detallan los endpoints disponibles en la API:
     ]
   }
   ```
-
----
-
-## **Consideraciones Adicionales**
-
-- **Autenticación**: Los endpoints que requieren autenticación deben incluir el token de acceso en el encabezado de la solicitud:
-  
-  ```http
-  Authorization: Bearer token_generado_aqui
-  ```
-
-- **Errores**: Asegúrate de manejar correctamente los errores como la falta de autenticación, datos inválidos, o recursos no encontrados.
-
----
-
-Este archivo te permitirá tener un claro entendimiento sobre cómo interactuar con los endpoints de la API y cómo realizar pruebas usando **Postman**. ¡Listo para empezar!
