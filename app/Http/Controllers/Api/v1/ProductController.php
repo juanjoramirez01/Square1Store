@@ -56,7 +56,7 @@ class ProductController extends Controller
     {
         try {
             //Get a product by ID
-            $product = Product::findOrFail($id);
+            $product = Product::with('variants')->findOrFail($id);
             return response()->json($product, 200);
         } catch(ModelNotFoundException $e) {
 
@@ -120,7 +120,7 @@ class ProductController extends Controller
         try {
             
             //Find Product in Database.
-            $product = Product::findOrFail($id);
+            $product = Product::with('variants')->findOrFail($id);
 
             //Update the product found with the data sent in the body of the request.
             $product->update($request->all());

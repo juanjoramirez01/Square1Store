@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\v1\AuthControlller;
+use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\OrderController;
 use App\Http\Controllers\Api\v1\ProductController;
+use App\Http\Controllers\Api\v1\UserController;
+use App\Http\Controllers\Api\v1\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group( function () {
     
     //Auth
-    Route::post('/register', [AuthControlller::class, 'register']);
-    Route::post('/login', [AuthControlller::class, 'login']);
-    Route::middleware('auth:sanctum')->post('logout', [AuthControlller::class, 'logout']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+    Route::middleware('auth:sanctum')->get('/profile', [UserController::class, 'profile']);
 
     //products
     Route::prefix('products')->group( function () {
@@ -31,7 +34,14 @@ Route::prefix('v1')->group( function () {
     Route::prefix('orders')->middleware('auth:sanctum')->group(function () {
         Route::get('/', [OrderController::class, 'index']);
         Route::get('/{id}', [OrderController::class, 'show']);
+        Route::post('/create', [OrderController::class, 'store']);
     });
 
+    //cart
+    Route::prefix('cart')->middleware('auth:sanctum')->group(function () {
+        Route::get('/', [CartController::class, 'index']);
+        Route::post('/add', [CartController::class, 'add']);
+        Route::put('/update/{id}', [CartController::class, 'update']);
+        Route::delete('/remove/{id}', [CartController::class, 'destroy']);
+    });
 });
-

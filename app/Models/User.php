@@ -48,7 +48,8 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the attributes that should be cast.
+     * Get the user's orders.
+     * Creates a new order if one doesn't exist.
      *
      * @return array<string, string>
      */
@@ -56,4 +57,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
+
+    /**
+     * Get the user's shopping cart.
+     * Creates a new cart if one doesn't exist.
+     *
+     * @return array<string, string>
+     */
+    public function cart()
+    {
+        return $this->hasOne(ShoppingCart::class, 'user_id', 'id');
+    }
+
 }
