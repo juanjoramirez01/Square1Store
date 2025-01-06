@@ -19,11 +19,9 @@ class Product extends Model
     ];
 
     protected $casts = [
-        // Other attributes with automatic casting
-        'other_attributes' => 'array', // If you just want to automatically decode JSON
+        'other_attributes' => 'array',
     ];
 
-    // Mutator to convert the other_attributes array to json, thus saving the json in the database.
     public function setOtherAttributesAttribute($value)
     {
         $this->attributes['other_attributes'] = json_encode($value);

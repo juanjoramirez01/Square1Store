@@ -10,14 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'email',
@@ -25,21 +19,11 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -48,23 +32,11 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Get the user's orders.
-     * Creates a new order if one doesn't exist.
-     *
-     * @return array<string, string>
-     */
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
-    /**
-     * Get the user's shopping cart.
-     * Creates a new cart if one doesn't exist.
-     *
-     * @return array<string, string>
-     */
     public function cart()
     {
         return $this->hasOne(ShoppingCart::class, 'user_id', 'id');

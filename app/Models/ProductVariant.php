@@ -25,4 +25,9 @@ class ProductVariant extends Model
     {
         return $this->hasMany(OrderItem::class, 'product_variant_id', 'id');
     }
+
+    public function cartItems()
+    {
+        return $this->hasOne(OrderItem::class, 'product_variant_id', 'id');
+    }
 }
