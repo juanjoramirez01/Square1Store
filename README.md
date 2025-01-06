@@ -1,66 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Square1 Store API documentation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Features
+- User registration and authentication
+- Product listing and search
+- Shopping cart management
+- Order creation and history tracking
+- Secure API with Sanctum middleware
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Setup Instructions
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1. Clone the repository:
+```
+git clone <repository-url>
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Install dependencies:
+```
+composer install
+```
 
-## Learning Laravel
+### 3. Configure environment:
+- Copy .env.example to .env:
+```
+cp .env.example .env
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Update your database settings in the .env file.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Generate the application key:
+```
+php artisan key:generate
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 4. Run application:
+```
+php artisan serve
+```
 
-## Laravel Sponsors
+### 5. Test endpoints
+- When testing in Postman, the endpoint should have before the "api/v1/" the localhost URL, which normally is http://127.0.0.1:8000/
+- Replace the value of the body for a valid value.
+- Adittional query parameters are added after the endpoint in the form of "?key=value&key=value&key=value"
+- The endpoints protected by sanctum middleware only can be accesed after logging in and obtaining the token, which has to be pasted in the Headers section of Postman, in the key "Authorization" with value "Bearer ", followed by the full token.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Authentication Endpoints
+**Register:** 
+- Endpoint: POST /api/v1/register
+- Body:
+```
+{
+  "name": "string",
+  "email": "string",
+  "password": "string"
+}
+```
 
-### Premium Partners
+**Login:**
+- Endpoint: POST /api/v1/login
+- Body:
+```
+{
+  "email": "string",
+  "password": "string"
+}
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+**Profile:** (Protected by Sanctum)
+- Endpoint: GET /api/v1/profile
 
-## Contributing
+**Logout:** (Protected by Sanctum)
+- Endpoint: POST /api/v1/logout
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Shopping Cart Endpoints
+All the following endpoints are Protected by Sanctum.
 
-## Code of Conduct
+**View Shopping Cart:**
+- Endpoint: GET /api/v1/cart
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Add to Shopping Cart:**
+- Endpoint: POST /api/v1/cart/add
+- Body:
+```
+{
+  "variant_id": "integer",
+  "quantity": "integer"
+}
+```
 
-## Security Vulnerabilities
+**Update Cart Item:**
+- Endpoint: PUT /api/v1/cart/update/{CartItemID}
+- Body:
+```
+{
+  "variant_id": "integer",
+  "quantity": "integer"
+}
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Delete Cart Item:**
+- Endpoint: DELETE /api/v1/cart/remove/{CartItemID}
 
-## License
+### Product Endpoints
+**List Products:**
+- Endpoint: GET /api/v1/products
+- Query Parameters: page, per_page
+  
+**Search Products:**
+- Endpoint: GET /api/v1/products/search
+- Query Parameters: name, brand, collection, gender, min_price, max_price
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Get Product Details:**
+- Endpoint: GET /api/v1/products/{ProductID}    
+
+### Orders Endpoints
+All the following endpoints are Protected by Sanctum.
+
+**Create Order:**
+- Endpoint: POST /api/v1/orders/create
+- Body:
+```
+{
+  "shipping_address": "string",
+  "payment_method": "string"
+}
+```
+
+**List User Orders:**
+- Endpoint: GET /api/v1/orders
+
+**Get Order Details:**
+- Endpoint: GET /api/v1/orders/{OrderID}
